@@ -1,0 +1,184 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>bindaas</groupId>
+	<artifactId>master</artifactId>
+	<version>0.0.2</version>
+	<packaging>pom</packaging>
+	<properties>
+		<java.version>1.6</java.version>
+	</properties>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<manifestLocation>META-INF</manifestLocation>
+					<instructions>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Export-Package>${exportPackage}</Export-Package>
+						<_exportcontents>${exportPackageFromEmbeddedDependecies}</_exportcontents>
+						<Bundle-Activator>${bundleActivator}</Bundle-Activator>
+						<Import-Package>${importPackage}</Import-Package>
+						<Private-Package>${privatePackage}</Private-Package>
+						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+						<Embed-Directory>dependencies</Embed-Directory>
+						<Embed-StripGroup>true</Embed-StripGroup>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Include-Resource>${includeResources}</Include-Resource>
+						<Spring-Context>spring/*.xml</Spring-Context>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>dependencies</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- OSGi System Dependencies -->
+		<dependency>
+			<groupId>bindaas-osgi</groupId>
+			<artifactId>org.eclipse.osgi</artifactId>
+			<version>3.8.2.v20130124</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>org.apache.felix.eventadmin</artifactId>
+			<version>1.3.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Common Dependencies shared across all projects -->
+		<dependency>
+			<groupId>bindaas-osgi</groupId>
+			<artifactId>com.google.gson</artifactId>
+			<version>2.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.1.9.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.5.6</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- CXF dependencies -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-bundle</artifactId>
+			<version>2.7.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Spring Framework Dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.2.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<repositories>
+		<repository>
+			<id>maven-cci</id>
+			<url>http://maven.cci.emory.edu/nexus/content/groups/public/</url>
+		</repository>
+
+	</repositories>
+	<distributionManagement>
+		<!-- Publish the versioned releases here -->
+		<repository>
+			<id>maven-cci</id>
+			<name>CCI Release</name>
+			<url>http://maven.cci.emory.edu/nexus/content/repositories/releases/</url>
+		</repository>
+
+		<!-- Publish the versioned releases here -->
+		<snapshotRepository>
+			<id>maven-cci</id>
+			<name>CCI Snapshot</name>
+			<url>http://maven.cci.emory.edu/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+
+	<!-- <modules> <module>bindaas-version-manager</module> <module>bindaas-security-api</module> 
+		<module>junit-aime-bindaas-datasource-provider-1</module> <module>junit-bindaas-core</module> 
+		<module>junit-mongodb-datasource-provider</module> <module>ldap-bindaas-authentication-provider</module> 
+		<module>mongodb-datasource-provider</module> <module>mysql-datasource-provider</module> 
+		<module>aime-bindaas-datasource-provider-1</module> <module>aime4-bindaas-datasource-provider</module> 
+		<module>bindaas-core-api</module> <module>bindaas-core-impl</module> <module>bindaas-web-console</module> 
+		<module>bindaas-commons-h2-hibernate</module> <module>bindaas-commons-mail</module> 
+		<module>bindaas-commons-openid-helper</module> <module>image-download-query-result-modifier</module> 
+		<module>postgres-datasource-provider</module> <module>aim-to-dicom-query-result-modifier</module> 
+		<module>../../projects/misc/commons-xml2json</module> <module>db2-datasource-provider</module> 
+		<module>log4j.config</module> <module>generic-sql-datasource-provider</module> 
+		<module>http-datasource-provider</module> <module>bindaas-psuedo-sts</module> 
+		<module>bindaas-commons-cxf-wrapper</module> <module>dicom-to-png-query-result-modifier</module> 
+		<module>aim-to-svg-query-result-modifier</module> <module>dicomaim-to-pngsvg-QRM</module> 
+		<module>heartbeat-monitor-client</module> <module>heartbeat-monitor-server</module> 
+		<module>native-app-runner-SPM</module> <module>bindaas-trusted-application-manager</module> 
+		<module>aime-bindaas-datasource-provider-2</module> <module>security-dashboard</module> 
+		</modules> -->
+</project>
