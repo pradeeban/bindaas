@@ -11,8 +11,9 @@
 	<version>0.0.1</version>
 	<packaging>bundle</packaging>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
+		<exportPackage>!*bundle*,edu.emory.cci.bindaas.commons.cxf.*</exportPackage>
+		<privatePackage>edu.*bundle*</privatePackage>
+		<importPackage>org.osgi.*,org.apache.commons.logging,!*</importPackage>
 		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
 		<bundleActivator>edu.emory.cci.bindaas.commons.cxf.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
