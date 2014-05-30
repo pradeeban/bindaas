@@ -11,10 +11,9 @@
 	<version>0.0.1</version>
 	<packaging>bundle</packaging>
 	<properties>
-		<exportPackage>!*bundle*,edu.emory.cci.bindaas.commons.cxf.*</exportPackage>
-		<privatePackage>edu.*bundle*</privatePackage>
-		<importPackage>org.osgi.*,org.apache.commons.logging,!*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
+		<exportPackage>!*bundle,edu.emory.cci.bindaas.commons.cxf.*</exportPackage>
+		<privatePackage>edu.emory.cci.bindaas.commons.cxf.bundle</privatePackage>
+		<importPackage>org.osgi.*,org.apache.commons.logging,edu.emory.cci.bindaas.framework.*,!*</importPackage>
 		<bundleActivator>edu.emory.cci.bindaas.commons.cxf.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
 	</properties>
