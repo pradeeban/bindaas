@@ -10,10 +10,10 @@
 	<artifactId>bindaas-commons-mail</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
+		<exportPackage>edu.emory.cci.bindaas.commons.mail.api</exportPackage>
+		<importPackage>edu.emory.cci.bindaas.core.util*,org.apache.commons.logging, org.osgi.framework,javax.*;resolution:=optional,sun.*;resolution:=optional</importPackage>
 		<bundleActivator>edu.emory.cci.bindaas.commons.mail.bundle.Activator</bundleActivator>
+		<privatePackage>edu.emory.cci.bindaas.commons.mail.*</privatePackage>
 		<includeResources>spring=spring</includeResources>
 	</properties>
 	<packaging>bundle</packaging>
