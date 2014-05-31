@@ -11,11 +11,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<properties>
-		<exportPackage>edu*</exportPackage>
+		<exportPackage>edu.emory.cci.bindaas.security.model*,edu.emory.cci.bindaas.security.api</exportPackage>
 		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
+		<privatePackage>edu.emory.cci.bindaas.security*</privatePackage>
 		<bundleActivator>edu.emory.cci.bindaas.security.bundle.Activator</bundleActivator>
-		<includeResources></includeResources>
 	</properties>
 	<dependencies>
 		<dependency>
