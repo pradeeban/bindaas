@@ -11,11 +11,12 @@
 	<version>0.0.1</version>
 	<packaging>bundle</packaging>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
+		<exportPackage>edu.emory.cci.bindaas.commons.hibernateh2</exportPackage>
+		<importPackage>*;resolution:=optional</importPackage>
+		<privatePackage>edu.emory.cci.bindaas.commons.hibernateh2.bundle</privatePackage>
+		<exportPackageFromEmbeddedDependecies>org.hibernate.*,javax.persistence.*</exportPackageFromEmbeddedDependecies>
 		<bundleActivator>edu.emory.cci.bindaas.commons.hibernateh2.bundle.Activator</bundleActivator>
-		<includeResources>spring=spring</includeResources>
+		<includeResources>spring=spring,.=src/main/resources</includeResources>
 	</properties>
 	<dependencies>
 		<dependency>
