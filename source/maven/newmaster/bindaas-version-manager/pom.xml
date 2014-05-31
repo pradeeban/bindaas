@@ -10,10 +10,10 @@
 	<artifactId>bindaas-version-manager</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<exportPackage>edu*</exportPackage>
+		<exportPackage>edu.emory.cci.bindaas.version_manager.api</exportPackage>
 		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
-		<bundleActivator>edu.emory.cci.bindaas.core.bundle.Activator</bundleActivator>
+		<privatePackage>edu.emory.cci.bindaas.version_manager*</privatePackage>
+		<bundleActivator>edu.emory.cci.bindaas.version_manager.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
 	</properties>
 	<packaging>bundle</packaging>
@@ -24,7 +24,6 @@
 			<version>0.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
 
 </project>
