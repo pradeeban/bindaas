@@ -11,10 +11,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<exportPackage>edu.emory.cci.bindaas.core*api,edu.emory.cci.bindaas.core.config,edu.emory.cci.bindaas.core.exception,edu.emory.cci.bindaas.core.model*,edu.emory.cci.bindaas.core.util</exportPackage>
-		<importPackage>*</importPackage>
+		<importPackage>org.hibernate.proxy,javassist.util.proxy,*</importPackage>
 		<privatePackage>edu.emory.cci.bindaas.core*</privatePackage>
 		<bundleActivator>edu.emory.cci.bindaas.core.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
+		<hibernateEntity>edu.emory.cci.bindaas.core.model.hibernate.HistoryLog,edu.emory.cci.bindaas.core.model.hibernate.UserRequest,edu.emory.cci.bindaas.core.model.hibernate.VerifyEmail,edu.emory.cci.bindaas.core.model.hibernate.BindaasEventInfo</hibernateEntity>
 	</properties>
 	<packaging>bundle</packaging>
 
@@ -49,7 +50,12 @@
 			<version>0.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-osgi</artifactId>
+			<version>4.3.5.Final</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>bindaas</groupId>
 			<artifactId>bindaas-common-lib</artifactId>

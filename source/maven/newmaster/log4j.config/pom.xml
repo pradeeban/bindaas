@@ -23,6 +23,7 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Fragment-Host>org.springframework.osgi.log4j.osgi;bundle-version="1.2.15"</Fragment-Host>
 						<Include-Resource>.=src/main/resources</Include-Resource>
+						<Spring-Context></Spring-Context>
 					</instructions>
 				</configuration>
 			</plugin>

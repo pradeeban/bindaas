@@ -12,17 +12,59 @@
 	<packaging>bundle</packaging>
 	<properties>
 		<exportPackage>edu.emory.cci.bindaas.commons.hibernateh2</exportPackage>
-		<importPackage>*;resolution:=optional</importPackage>
+		<exportPackageFromEmbeddedDependecies>javax.persistence*,javassist.util.proxy,org.hibernate.*</exportPackageFromEmbeddedDependecies>
+		<importPackage>org.apache.commons.logging,org.osgi.framework</importPackage>
 		<privatePackage>edu.emory.cci.bindaas.commons.hibernateh2.bundle</privatePackage>
-		<exportPackageFromEmbeddedDependecies>org.hibernate.*,javax.persistence.*</exportPackageFromEmbeddedDependecies>
 		<bundleActivator>edu.emory.cci.bindaas.commons.hibernateh2.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring,.=src/main/resources</includeResources>
 	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<manifestLocation>META-INF</manifestLocation>
+					<instructions>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Export-Package>${exportPackage}</Export-Package>
+						<_exportcontents>${exportPackageFromEmbeddedDependecies}</_exportcontents>
+						<Bundle-Activator>${bundleActivator}</Bundle-Activator>
+						<Import-Package>${importPackage}</Import-Package>
+						<Private-Package>${privatePackage}</Private-Package>
+						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+						<Embed-Directory>dependencies</Embed-Directory>
+						<Embed-StripGroup>true</Embed-StripGroup>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Include-Resource>${includeResources}</Include-Resource>
+						<Spring-Context>spring/*.xml</Spring-Context>
+						<DynamicImport-Package>*</DynamicImport-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.1.9.Final</version>
+			<version>4.3.5.Final</version>
+		</dependency>
+
+		<!-- javax.persistence provided -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jpa_2.0_spec</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- h2 provider -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.170</version>
 		</dependency>
 	</dependencies>
 </project>

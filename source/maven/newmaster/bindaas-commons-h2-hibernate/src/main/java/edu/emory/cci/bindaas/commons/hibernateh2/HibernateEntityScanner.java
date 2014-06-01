@@ -6,9 +6,9 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -88,7 +88,7 @@ public class HibernateEntityScanner {
 		
 		config = config.configure();
 		
-		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();        
+		ServiceRegistry serviceRegistry = new  StandardServiceRegistryBuilder().applySettings(config.getProperties()).build() ;        
 		SessionFactory sessionFactory = config.buildSessionFactory(serviceRegistry); 
 		
 		return sessionFactory; 
