@@ -10,8 +10,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>ldap-bindaas-authentication-provider</artifactId>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
+		<exportPackage>edu.emory.cci.bindaas.security.ldap</exportPackage>
+		<importPackage>org.apache.commons.logging, org.osgi.framework,edu.*;javax.*; version:=optional</importPackage>
+		<privatePackage>edu.emory.cci.bindaas.security.ldap.bundle</privatePackage>
 		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
 		<bundleActivator>edu.emory.cci.bindaas.security.ldap.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
