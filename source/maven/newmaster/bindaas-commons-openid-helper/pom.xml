@@ -10,57 +10,32 @@
 	<artifactId>bindaas-commons-openid-helper</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies></exportPackageFromEmbeddedDependecies>
+		<exportPackage>edu.emory.cci.bindaas.openid</exportPackage>
+		<privatePackage>edu.emory.cci.bindaas.openid.bundle</privatePackage>
+		<importPackage>edu*,org.apache.commons.logging,org.osgi.framework,javax.* ; resolution:=optional,javax.xml.parsers,org.w3c.dom,org.xml.sax</importPackage>
+		<dynamicPackage>*</dynamicPackage>
 		<bundleActivator>edu.emory.cci.bindaas.openid.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring</includeResources>
 	</properties>
 	<packaging>bundle</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.8.1</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.guice</groupId>
-			<artifactId>guice</artifactId>
-			<version>2.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>4.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.nekohtml</groupId>
-			<artifactId>nekohtml</artifactId>
-			<version>1.9.14</version>
-		</dependency>
-		<dependency>
-			<groupId>bindaas</groupId>
+			<groupId>org.openid4java</groupId>
 			<artifactId>openid4java</artifactId>
-			<version>0.9.6</version>
+			<version>0.9.8</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>bindaas</groupId>
 			<artifactId>bindaas-security-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-commons-cxf-wrapper</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 </project>
