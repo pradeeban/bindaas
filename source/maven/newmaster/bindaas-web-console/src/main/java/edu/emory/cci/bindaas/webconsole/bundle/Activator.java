@@ -24,7 +24,7 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-		log.trace(String.format("Starting Bundle [%s]", context.getBundle().getSymbolicName()));
+		log.debug(String.format("Starting Bundle [%s]", context.getBundle().getSymbolicName()));
 		
 	}
 	

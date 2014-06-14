@@ -10,9 +10,11 @@
 	<artifactId>bindaas-web-console</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<exportPackage>edu*</exportPackage>
-		<importPackage>*</importPackage>
-		<exportPackageFromEmbeddedDependecies>org.apache.velocity*,</exportPackageFromEmbeddedDependecies>
+		<exportPackage>edu.emory.cci.bindaas.webconsole.util,edu.emory.cci.bindaas.webconsole.servlet.util,edu.emory.cci.bindaas.webconsole.config</exportPackage>
+		<privatePackage>edu.emory.cci.bindaas.webconsole.*</privatePackage>
+		<importPackage>edu*,org.hibernate.proxy,javassist.util.proxy,com.google.*,org.apache.commons.logging,org.osgi.*,javax.persistence,org.hibernate.*,org.apache.felix.http.api,javax.servlet.http,javax.servlet</importPackage>
+		<dynamicPackage>*</dynamicPackage>
+		<exportPackageFromEmbeddedDependecies>org.apache.velocity*</exportPackageFromEmbeddedDependecies>
 		<bundleActivator>edu.emory.cci.bindaas.webconsole.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring,templates=templates,foundation=foundation</includeResources>
 	</properties>
