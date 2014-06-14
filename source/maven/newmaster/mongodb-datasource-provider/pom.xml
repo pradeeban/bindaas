@@ -42,6 +42,7 @@
 			<groupId>bindaas</groupId>
 			<artifactId>bindaas-common-lib</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
