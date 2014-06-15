@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bindaas</groupId>
+		<artifactId>master</artifactId>
+		<version>0.0.2</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>bindaas-trusted-application-manager</artifactId>
+	<version>0.0.1</version>
+
+	<properties>
+		<exportPackage>edu.emory.cci.bindaas.trusted_app.api,edu.emory.cci.bindaas.trusted_app.exception</exportPackage>
+		<importPackage>*</importPackage>
+		<privatePackage>edu.emory.cci.bindaas.trusted_app*</privatePackage>
+		<bundleActivator>edu.emory.cci.bindaas.trusted_app.bundle.Activator</bundleActivator>
+		<includeResources>spring=spring</includeResources>
+	</properties>
+	<packaging>bundle</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-core-api</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-core-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-web-console</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-commons-h2-hibernate</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>bindaas</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>ldap-bindaas-authentication-provider</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-security-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-commons-cxf-wrapper</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
