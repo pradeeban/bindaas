@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>bindaas</groupId>
+		<artifactId>master</artifactId>
+		<version>0.0.2</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>aime-bindaas-datasource-provider-1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<properties>
+		<importPackage>com.google.*, edu.emory.cci.bindaas.datasource.provider.genericsql , edu.emory.cci.bindaas.*, org.apache.commons.logging , org.osgi.framework </importPackage>
+		<privatePackage>edu.emory.cci.bindaas.datasource.provider.aime*</privatePackage>
+		<bundleActivator>edu.emory.cci.bindaas.datasource.provider.aime.bundle.Activator</bundleActivator>
+		<includeResources>spring=spring,documentation=documentation</includeResources>
+		<dynamicPackage>*</dynamicPackage>
+	</properties>
+	<packaging>bundle</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>db2</groupId>
+			<artifactId>db2jcc4</artifactId>
+			<version>9.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-core-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-core-api</artifactId>
+			<version>0.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>bindaas</groupId>
+			<artifactId>bindaas-common-lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+
+</project>
