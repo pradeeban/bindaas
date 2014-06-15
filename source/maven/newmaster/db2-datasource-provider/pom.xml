@@ -13,7 +13,7 @@
 		<importPackage>com.google.*, edu.emory.cci.bindaas.datasource.provider.genericsql , edu.emory.cci.bindaas.*, org.apache.commons.logging , org.osgi.framework </importPackage>
 		<privatePackage>edu.emory.cci.bindaas.datasource.provider.db2*</privatePackage>
 		<bundleActivator>edu.emory.cci.bindaas.datasource.provider.db2.bundle.Activator</bundleActivator>
-		<includeResources>spring=spring</includeResources>
+		<includeResources>spring=spring,documentation=documentation</includeResources>
 		<dynamicPackage>*</dynamicPackage>
 	</properties>
 	<packaging>bundle</packaging>
