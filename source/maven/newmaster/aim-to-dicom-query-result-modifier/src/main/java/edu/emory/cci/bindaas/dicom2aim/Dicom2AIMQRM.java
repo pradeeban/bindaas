@@ -45,7 +45,7 @@ import edu.emory.cci.bindaas.framework.util.StandardMimeType;
 public class Dicom2AIMQRM implements IQueryResultModifier {
 
 	private Log log = LogFactory.getLog(getClass());
-	private static final String DOCUMENTATION_RESOURCES_LOCATION = "META-INF/documentation-dicom2aim";
+	private static final String DOCUMENTATION_RESOURCES_LOCATION = "documentation-dicom2aim";
 	private JsonObject documentation;
 	private final static String seriesUIDAttributeName ="seriesUID";
 

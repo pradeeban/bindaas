@@ -13,7 +13,7 @@
 	<properties>
 		<exportPackage>edu.emory.cci.bindaas.commons.hibernateh2</exportPackage>
 		<exportPackageFromEmbeddedDependecies>javax.persistence*,javassist.util.proxy,org.hibernate.*</exportPackageFromEmbeddedDependecies>
-		<importPackage>org.apache.commons.logging,org.osgi.framework</importPackage>
+		<importPackage>org.apache.commons.logging,org.osgi.framework,org.xml.sax,javax.xml.parsers</importPackage>
 		<privatePackage>edu.emory.cci.bindaas.commons.hibernateh2.bundle</privatePackage>
 		<bundleActivator>edu.emory.cci.bindaas.commons.hibernateh2.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring,.=src/main/resources</includeResources>

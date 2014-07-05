@@ -36,7 +36,7 @@ import edu.emory.cci.bindaas.framework.util.DocumentationUtil;
 public class AIM2SVGQRM implements IQueryResultModifier {
 
 	private Log log = LogFactory.getLog(getClass());
-	private static final String DOCUMENTATION_RESOURCES_LOCATION = "META-INF/documentation";
+	private static final String DOCUMENTATION_RESOURCES_LOCATION = "documentation";
 	private JsonObject documentation;
 	private Templates template;
 	private Pattern inPattern;
@@ -53,7 +53,7 @@ public class AIM2SVGQRM implements IQueryResultModifier {
 		
 		InputStream xslt;
 		try {
-			xslt = context.getBundle().getEntry("META-INF/AIMv3r11MapToSVG11.xslt").openStream();
+			xslt = context.getBundle().getResource("AIMv3r11MapToSVG11.xslt").openStream();
 		} catch (IOException e1) {
 			log.error(e1);
 			throw e1;			

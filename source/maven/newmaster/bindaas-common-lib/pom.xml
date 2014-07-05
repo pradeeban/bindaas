@@ -23,7 +23,7 @@
 					<instructions>
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Import-Package>*;resolution:=optional</Import-Package>
-						<_exportcontents>org.apache.commons.cli*,org.apache.commons.lang3*,au.com.bytecode.*,com.google.*</_exportcontents>
+						<_exportcontents>org.apache.http*,org.apache.commons.cli*,org.apache.commons.lang3*,au.com.bytecode.*,com.google.*</_exportcontents>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Directory>dependencies</Embed-Directory>
 						<Embed-StripGroup>true</Embed-StripGroup>
@@ -54,6 +54,11 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>14.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.2</version>
 		</dependency>
 	</dependencies>
 </project>

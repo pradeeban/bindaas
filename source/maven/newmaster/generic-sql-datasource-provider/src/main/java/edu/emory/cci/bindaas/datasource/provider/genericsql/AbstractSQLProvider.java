@@ -36,6 +36,7 @@ public abstract class AbstractSQLProvider implements IProvider {
 		props.put("driver-version(major/minor)", driver.getMajorVersion() + "/" + driver.getMinorVersion());
 		
 		getBundleContext().registerService(IProvider.class.getName(), this, props);
+		log.debug("Registering service " + IProvider.class + " : " + getClass() );
 		queryHandler.setProvider(this);
 		deleteHandler.setProvider(this);
 		submitHandler.setProvider(this);
