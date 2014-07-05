@@ -10,8 +10,7 @@
 	<artifactId>mongodb-datasource-provider</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<importPackage>com.google.*, edu.emory.cci.bindaas.*,
-			org.apache.commons.logging , org.osgi.framework, au.* </importPackage>
+		<importPackage>com.google.*, edu.emory.cci.bindaas.*, org.apache.commons.logging , org.osgi.framework, au.* </importPackage>
 		<privatePackage>edu.emory.cci.bindaas.datasource.provider.mongodb*</privatePackage>
 		<bundleActivator>edu.emory.cci.bindaas.datasource.provider.mongodb.bundle.Activator</bundleActivator>
 		<includeResources>spring=spring,documentation=documentation</includeResources>

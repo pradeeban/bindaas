@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1402790568034
+Bnd-LastModified: 1404586935439
 Build-Jdk: 1.7.0_55
 Built-By: nadir
 Bundle-Activator: edu.emory.cci.bindaas.datasource.provider.mysql.bundle
