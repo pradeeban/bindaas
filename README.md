@@ -1,4 +1,5 @@
 # Bindaas Data Integration Middleware Platform
+[![Build Status](https://travis-ci.com/pradeeban/bindaas.svg?branch=master)](https://travis-ci.org/pradeeban/bindaas)
 
 ## Building Bindaas
 
